@@ -14,6 +14,7 @@ NOTE: In early-stage development, API not locked.
 ## Client Libraries
 
 - Node.js: [remq-node](https://github.com/kainosnoema/remq-node) (`npm install remq`)
+- Ruby: [remq-rb](https://github.com/kainosnoema/remq-rb) (`gem install remq`)
 
 ## Usage
 
