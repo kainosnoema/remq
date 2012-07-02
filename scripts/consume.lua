@@ -1,5 +1,5 @@
 local namespace, channel, cursor, limit = ARGV[1], ARGV[2], ARGV[3], ARGV[4]
-cursor = math.max(0, cursor) -- cursor can't be negative
+
 limit = math.min(limit, 3999) -- 3999 is the limit of unpack()
 
 local channel_key = namespace .. ':channel:' .. channel
