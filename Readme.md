@@ -18,11 +18,13 @@ NOTE: In early-stage development, API not locked.
 
 ## Usage
 
-This project includes the core Lua scripts that define the Remq protocol. Raw Redis syntax:
+This project includes just the core Lua scripts that define the Remq protocol. To use Remq to build a message queue, install Redis along with one or more of the client libraries listed above.
+
+Raw Redis syntax:
 
 **Producer:**
 ``` sh
-EVAL <publish.lua> namespace channel message
+redis> EVAL <publish.lua> namespace channel message
 # returns a unique message id
 ```
 

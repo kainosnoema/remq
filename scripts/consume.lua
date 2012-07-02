@@ -1,15 +1,15 @@
 local namespace, channel, cursor, limit = ARGV[1], ARGV[2], ARGV[3], ARGV[4]
-local channel_key = namespace .. ':channel:' .. channel
-
 cursor = math.max(0, cursor) -- cursor can't be negative
 limit = math.min(limit, 3999) -- 3999 is the limit of unpack()
+
+local channel_key = namespace .. ':channel:' .. channel
 
 -- for results from multiple channels, we'll merge them into a single set
 local union_key
 if string.find(channel_key, '*') then
-  local matched_keys = redis.call('keys', channel_key)
-  -- the pattern matched multiple keys, we have to merge the keys
+  -- if the pattern matches multiple keys, we have to merge the keys
   -- we could use zunionstore here, but it wouldn't be optimal for very large sets
+  local matched_keys = redis.call('keys', channel_key)
   if #matched_keys > 1 then
     union_key = channel_key .. '@' .. redis.call('get', namespace .. ':id')
     for i,key in ipairs(matched_keys) do
