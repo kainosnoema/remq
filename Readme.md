@@ -24,7 +24,7 @@ Raw Redis syntax:
 
 **Producer:**
 ``` sh
-redis> EVAL <publish.lua> 0 namespace channel message
+redis> EVAL <publish.lua> 0 namespace channel message utcseconds
 # returns a unique message id
 ```
 

@@ -31,6 +31,10 @@ end
 local msgs = {}
 if channel_key ~= nil then
   msgs = redis.call('zrangebyscore', channel_key, '(' .. cursor, '+inf', 'WITHSCORES', 'LIMIT', 0, limit)
+  -- zset decimal precision isn't great enough to retain utc seconds, so we have to round
+  for i,key in ipairs(msgs) do
+    if i % 2 == 0 then msgs[i] = string.format("%.10f", msgs[i]) end
+  end
 end
 
 -- if we've merged multiple channels, remove the union key
