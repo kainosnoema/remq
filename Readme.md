@@ -24,18 +24,18 @@ Raw Redis syntax:
 
 **Producer:**
 ``` sh
-redis> EVAL <publish.lua> namespace channel message
+redis> EVAL <publish.lua> 0 namespace channel message
 # returns a unique message id
 ```
 
 **Consumer:**
 ``` sh
-redis> EVAL <consume.lua> namespace channel cursor limit
+redis> EVAL <consume.lua> 0 namespace channel cursor limit
 # returns each message followed by its id, just like ZRANGEBYSCORE
 ```
 
 **Purge:**
 ``` sh
-redis> EVAL <purge.lua> namespace channel <BEFORE id (or) KEEP count>
+redis> EVAL <purge.lua> 0 namespace channel <BEFORE id (or) KEEP count>
 # returns the count of messages purged
 ```
