@@ -1,7 +1,7 @@
 local pattern, cursor, limit = ARGV[1], ARGV[2], ARGV[3]
 local pattern_key = 'remq:channel:' .. pattern
 
-limit = math.min(limit or 1000, 10000)
+limit = math.min(limit or 1000, 1000)
 
 -- for results from multiple channels, we'll merge them into a single set
 -- zunionstore is not optimal here since we only need a subset of matching sets

@@ -9,7 +9,7 @@ fast, persisted pub/sub message queues.
   - Producers publish any string to a message channel and receive a unique message-id
   - Consumers subscribe to message channels via polling with a cursor (allowing resume), or via Redis pub/sub
   - Consumers can subscribe to multible channels using Redis key globbing (ie. `'events.*'`)
-  - Able to sustain ~30k messages/sec on loopback interface (1 producer -> 1 consumer)
+  - Able to sustain ~10k messages/sec (bursts to ~30k/sec) on loopback interface (1 producer -> 1 consumer)
   - Consistent performance if Redis has enough memory (tested up to ~15m messages, 3GB in memory)
   - Channels may be flushed of old messages periodically to maintain performance
 
