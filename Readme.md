@@ -13,7 +13,7 @@ fast, persisted pub/sub message queues.
   - Consistent performance if Redis has enough memory (tested up to ~15m messages, 3GB in memory)
   - Channels may be flushed of old messages periodically to maintain performance
 
-NOTE: In early-stage development, API not locked. If you've used a previous
+**WARNING**: In early-stage development, API not locked. If you've used a previous
 version of these scripts, you'll most likely have to clear all previously
 published messages in order to upgrade to the latest version.
 
