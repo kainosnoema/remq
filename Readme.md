@@ -21,7 +21,7 @@ published messages in order to upgrade to the latest version.
 ## Client Libraries
 
 - Node.js: [remq-node](https://github.com/kainosnoema/remq-node) (`npm install remq`)
-- Ruby: [remq-rb](https://github.com/kainosnoema/remq-rb) (`gem install remq --pre`)
+- Ruby: [remq-rb](https://github.com/kainosnoema/remq-rb) (`gem install remq`)
 
 ## Usage
 
