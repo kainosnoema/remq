@@ -12,7 +12,7 @@ minimal infrastructure requirements.
   - Consumers subscribe to message channels via Redis pub/sub for fast delivery
   - Subscribe to multiple channels at once using globbing (ie. `'events.*'`)
   - Replay missed messages from a given message-id for recovery after consumer failure
-  - Messages are garanteed to be received in-order when consumers use ids properly
+  - Messages are guaranteed to be received in-order when consumers use ids properly
   - Able to sustain ~35k messages/sec on loopback interface (1 producer -> 1 consumer)
   - Consistent performance up to memory limit (tested to ~25m messages in 4GB memory)
   - Channels may be flushed of old messages periodically to reduce memory footprint
