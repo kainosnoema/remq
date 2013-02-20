@@ -23,8 +23,13 @@ published messages in order to upgrade to the latest version.
 
 ## Client Libraries
 
-- Node.js: [remq-node](https://github.com/kainosnoema/remq-node) (`npm install remq`)
-- Ruby: [remq-rb](https://github.com/kainosnoema/remq-rb) (`gem install remq`)
+- **Node**: [remq-node](https://github.com/kainosnoema/remq-node) -`npm install remq` - [![Build Status][node-travis-image]][node-travis-link] 
+- **Ruby**: [remq-rb](https://github.com/kainosnoema/remq-rb) - `gem install remq` - [![Build Status][rb-travis-image]][rb-travis-link]
+
+[node-travis-image]: https://secure.travis-ci.org/kainosnoema/remq-node.png?branch=master
+[node-travis-link]: http://travis-ci.org/kainosnoema/remq-node
+[rb-travis-image]: https://secure.travis-ci.org/kainosnoema/remq-rb.png?branch=master
+[rb-travis-link]: http://travis-ci.org/kainosnoema/remq-rb
 
 ## Usage
 
