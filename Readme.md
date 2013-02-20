@@ -1,17 +1,20 @@
 # Remq
 
-Remq (pronounced 'rem-que') is two things: (1) A [Redis](http://redis.io)-based
-protocol defined by a collection of Lua scripts (this project) which effectively
-turn Redis into a durable message queue broker for fast, reliable inter-service
-communication. (2) Multiple client libraries using these scripts for building
-fast, persisted pub/sub message queues.
+Remq (pronounced 'rem-que') is a set of [Redis](http://redis.io) Lua scripts
+enabling Redis to function as a durable message queue/topic broker for fast,
+reliable inter-service communication. These scripts, along with some simple
+client libraries make it easy to build fast, durable message channels with
+minimal infrastructure requirements.
 
-  - Producers publish any string to a message channel and receive a unique message-id
-  - Consumers subscribe to message channels via vanilla Redis pub/sub for instant delivery
-  - Subscribe to multiple channels using Redis key globbing (ie. `'events.*'`)
-  - Replay archived messages from a given message-id for failure recovery
+**How it works**:
+
+  - Producers publish messages to a channel and receive unique message-ids
+  - Consumers subscribe to message channels via Redis pub/sub for fast delivery
+  - Subscribe to multiple channels at once using globbing (ie. `'events.*'`)
+  - Replay missed messages from a given message-id for recovery after consumer failure
+  - Messages are garanteed to be received in-order when consumers use ids properly
   - Able to sustain ~35k messages/sec on loopback interface (1 producer -> 1 consumer)
-  - Consistent performance up to system memory limit (tested to ~25m messages in 4GB memory)
+  - Consistent performance up to memory limit (tested to ~25m messages in 4GB memory)
   - Channels may be flushed of old messages periodically to reduce memory footprint
 
 **WARNING**: In early-stage development, API not stable. If you've used a previous
@@ -26,10 +29,9 @@ published messages in order to upgrade to the latest version.
 ## Usage
 
 This project includes just the core Lua scripts that define the Remq protocol.
-To use Remq to build a message queue, install Redis along with one or more of
-the client libraries listed above.
+To use Remq to build a message queue, install Redis along a client library.
 
-Raw Redis syntax:
+Redis protocol:
 
 **Producer:**
 ``` sh
